@@ -1,3 +1,4 @@
+
 public class DoublyLinkedList {
 
 	private Node first;
@@ -64,7 +65,7 @@ public class DoublyLinkedList {
 	}
 	
 	public void displayInReverse() {
-		if (this.first==null) {
+		if (this.first == null) {
 			System.out.println("No node is available");
 			return;
 		} else {
@@ -128,10 +129,20 @@ public class DoublyLinkedList {
 		}
 	}
 	
-    	public void removeAt(int index)
-	{
-		if(index==0)
-		{
+	public void removeFirstNode() {
+		// to be implemented
+	}
+	
+	public void removeLastNode() {
+		// to be implemented
+	}
+		
+	// this needs some more work, not acceptable.
+	// first check if the linked list is there or not
+	// then validate the pos/index to remove
+	// have logical explanation for each line of code
+    	public void removeAt(int index) {
+		if(index==0) {
 			first = first.next;
 		}
 		else
@@ -149,16 +160,19 @@ public class DoublyLinkedList {
 		}
 	}
 
-public void insertAtStart(int data)
-	{
-		Node node = new Node();
-		node.data = data;
-		node.next = null;
+	// this looks good now
+	public void insertAtBeginning(int data) {
+		Node node = this._createNode(data);
 		node.next = first;
 		first = node;
 	}
-	 public void insertAt(int index,int data)
-	{
+	
+	public void insertAtEnd(int data) {
+		// to be implemented
+	}
+	
+	// even this needs some more work, not acceptable
+	public void insertAt(int index,int data) {
 		Node node = new Node();
 		node.data = data;
 		node.next = null;
@@ -178,12 +192,3 @@ public void insertAtStart(int data)
 		}
 	}
 }
-	
-/**
-null|10|BBB <--> AAA|20|null <--> null|30|null
-AAA				  BBB				CCC
-
-1000: first-->AAA
-2000: last -->BBB
-
-**/
