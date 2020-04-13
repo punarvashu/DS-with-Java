@@ -62,65 +62,73 @@ public class DoublyLinkedList {
 			}
 		}
 	}
+	
 	public void displayInReverse() {
-		if(this.last==null) {
+		if (this.first==null) {
 			System.out.println("No node is available");
 			return;
-		}else {
-			Node currentNode=last;
-			while(currentNode !=null) {
+		} else {
+			Node currentNode = last;
+			while(currentNode != null) {
 				System.out.println(currentNode.data + " ");
-				currentNode=currentNode.prev;
+				currentNode = currentNode.prev;
 			}
 		}
 	}
+	
 	public void remove(int value) {
-		if(this.first==null) {
+		if (this.first == null) {
 			System.out.println("list is empty");
 			System.exit(1);
-		}else {
-			Node currentNode=first;
-			while (currentNode !=null) {
-				if(currentNode.data==value) {
-					if(currentNode==first) {
-						first=first.next;
-						first.prev=null;
-						System.out.println("First Node removed");
+		} else {
+			Node currentNode = first;
+			while (currentNode != null) {
+				if (currentNode.data == value) {
+					if (currentNode == first) {
+						first = first.next;
+						first.prev = null;
+						System.out.println("First Node is removed");
 						break;
-					}else if(currentNode==last) {
-						last=last.prev;
-						last.next=null;
+					} else if (currentNode == last) {
+						last = last.prev;
+						last.next = null;
 						System.out.println("last node is removed");
 						break;
-					}else {
-						currentNode.prev.next=currentNode.next;
-						currentNode.next.prev=currentNode.prev;
+					} else {
+						currentNode.prev.next = currentNode.next;
+						currentNode.next.prev = currentNode.prev;
 						System.out.println("node in between is removed");
 						break;
-						
 					}
 				}
-				currentNode=currentNode.next;
+				currentNode = currentNode.next;
 			}
 		}
 	}
+	
 	public void search(int value) {
-		if(this.first==null) {
+		if (this.first == null) {
 			System.out.println("list is empty");
 			System.exit(1);
-		}else {
-			Node currentNode=first;
-			while(currentNode !=null) {
-				last=last.next;
-				if(currentNode.data==value) {
-					System.out.println("Value is present");
-				}else {
-					System.out.println("Value is not present in the list");
-				}break;
+		} else {
+			boolean flag = false;
+			Node currentNode = first;
+			while(currentNode != null) {
+				if (currentNode.data == value) {
+					flag = true;
+					break;
+				}
+				currentNode = currentNode.next;
+			}
+			if (flag) {
+				System.out.println("Value not found.");	
+			} else {
+				System.out.println("Value is present");
 			}
 		}
 	}
-    public void removeAt(int value) {
+	
+    	public void removeAt(int value) {
 	if(value==0) {
 		first=first.next;
 	}else {
