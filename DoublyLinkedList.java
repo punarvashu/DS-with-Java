@@ -128,37 +128,57 @@ public class DoublyLinkedList {
 		}
 	}
 	
-    	public void removeAt(int value) {
-	if(value==0) {
-		first=first.next;
-	}else {
-		Node currentNode=first;
-		Node current=null;
-		for(int i=0;i<value-1;i++)
+    	public void removeAt(int index)
+	{
+		if(index==0)
 		{
-			currentNode=currentNode.next;
+			first = first.next;
 		}
-	current=currentNode.next;
-	currentNode.next=current.next;
-	System.out.println("node is removed "+current.data);
+		else
+		{
+			Node n = first;
+			Node n1 = null;
+			for(int i=0;i<index-1;i++)
+			{
+				n = n.next;
+			}
+			n1 = n.next;
+			n.next = n1.next;
+			System.out.println("n1 " + n1.data);
+			n1 = null;
+		}
 	}
-    }	
 
-public void insertAt(int value,int data) {
+public void insertAtStart(int data)
+	{
 		Node node = new Node();
-		node.data=data;
-		node.next=null;
-		if(value==0) {
-			first=first.next;
-		}
-	Node current=first;
-	for(int i=0; i<value-1 ;i++) {
-		current=current.next;
+		node.data = data;
+		node.next = null;
+		node.next = first;
+		first = node;
 	}
-	node.next=current.next;
-	current.next=node;
+	 public void insertAt(int index,int data)
+	{
+		Node node = new Node();
+		node.data = data;
+		node.next = null;
+		
+		if(index==0)
+		{
+			insertAtStart(data);
+		}
+		else{
+		Node n = first;
+		for(int i=0;i<index-1;i++)
+		{
+			n = n.next;
+		}
+		node.next = n.next;
+		n.next = node;
+		}
+	}
 }
-}
+	
 /**
 null|10|BBB <--> AAA|20|null <--> null|30|null
 AAA				  BBB				CCC
