@@ -1,4 +1,3 @@
-
 public class DoublyLinkedList {
 
 	private Node first;
@@ -63,20 +62,20 @@ public class DoublyLinkedList {
 			}
 		}
 	}
-	
+
 	public void displayInReverse() {
-		if (this.first == null) {
+		if (this.last == null) {
 			System.out.println("No node is available");
 			return;
 		} else {
 			Node currentNode = last;
-			while(currentNode != null) {
+			while (currentNode != null) {
 				System.out.println(currentNode.data + " ");
 				currentNode = currentNode.prev;
 			}
 		}
 	}
-	
+
 	public void remove(int value) {
 		if (this.first == null) {
 			System.out.println("list is empty");
@@ -88,7 +87,7 @@ public class DoublyLinkedList {
 					if (currentNode == first) {
 						first = first.next;
 						first.prev = null;
-						System.out.println("First Node is removed");
+						System.out.println("First Node removed");
 						break;
 					} else if (currentNode == last) {
 						last = last.prev;
@@ -100,13 +99,14 @@ public class DoublyLinkedList {
 						currentNode.next.prev = currentNode.prev;
 						System.out.println("node in between is removed");
 						break;
+
 					}
 				}
 				currentNode = currentNode.next;
 			}
 		}
 	}
-	
+
 	public void search(int value) {
 		if (this.first == null) {
 			System.out.println("list is empty");
@@ -114,43 +114,62 @@ public class DoublyLinkedList {
 		} else {
 			boolean flag = false;
 			Node currentNode = first;
-			while(currentNode != null) {
+			while (currentNode != null) {
 				if (currentNode.data == value) {
 					flag = true;
 					break;
 				}
 				currentNode = currentNode.next;
 			}
-			if (flag) {
-				System.out.println("Value not found.");	
+			if (!flag) {
+				System.out.println("Value not found.");
 			} else {
 				System.out.println("Value is present");
 			}
 		}
 	}
-	
+
 	public void removeFirstNode() {
-		// to be implemented
-	}
-	
-	public void removeLastNode() {
-		// to be implemented
-	}
-		
-	// this needs some more work, not acceptable.
-	// first check if the linked list is there or not
-	// then validate the pos/index to remove
-	// have logical explanation for each line of code
-    	public void removeAt(int index) {
-		if(index==0) {
-			first = first.next;
+		if (this.first == null) {
+			System.out.println("list is empty");
+			System.exit(1);
+		} else {
+			Node currentNode = first;
+			while (currentNode != null) {
+				if (currentNode == first) {
+					first = first.next;
+					first.prev = null;
+					System.out.println("First Node removed");
+					break;
+				}
+			}
 		}
-		else
-		{
+	}
+
+	public void removeLastNode() {
+		if (this.first == null) {
+			System.out.println("list is empty");
+			System.exit(1);
+		} else {
+			Node currentNode = last;
+			while (currentNode != null) {
+				if (currentNode == last) {
+					last = last.prev;
+					last.next = null;
+					System.out.println("last node is removed");
+					break;
+				}
+			}
+		}
+	}
+
+	public void removeAt(int index) {
+		if (index == 0) {
+			first = first.next;
+		} else {
 			Node n = first;
 			Node n1 = null;
-			for(int i=0;i<index-1;i++)
-			{
+			for (int i = 0; i < index - 1; i++) {
 				n = n.next;
 			}
 			n1 = n.next;
@@ -160,35 +179,65 @@ public class DoublyLinkedList {
 		}
 	}
 
-	// this looks good now
 	public void insertAtBeginning(int data) {
 		Node node = this._createNode(data);
 		node.next = first;
 		first = node;
 	}
+
+	public void insertAt(int index, int data) {
+		// first check if the linked-list is present or not.
+		// if present then follow next.
+		
+		// index >= 1 and 
+		// limit the upper index
+		
+		
+		/*index = 3;
+		data = 25;	*/	// 10 --> p20n --> 25 --> p30n --> 40 --> 50
+		
+		Node node = this._createNode(data);
+		Node current = first;
 	
-	public void insertAtEnd(int data) {
-		// to be implemented
+		for (int f = 1; f < index-1; f++) {
+			current = current.next;
+		}
+		
+		node.next = current.next;
+		current.next.prev = node;
+		current.next = node;
+		node.prev = current;
+		
+	}
+
+	private int computeSize() {
+		int retval = 0;
+		Node current = first;
+		while(current != null) {
+			retval += 1;
+			current = current.next;
+		}
+		return retval;
 	}
 	
-	// even this needs some more work, not acceptable
-	public void insertAt(int index,int data) {
-		Node node = new Node();
-		node.data = data;
-		node.next = null;
-		
-		if(index==0)
-		{
-			insertAtStart(data);
+	public void insertAtEnd(int data) {
+		Node new_node = new Node(data);
+		/* If the Linked List is empty, then make the new node as head */
+		if (first == null) {
+			first = new Node(data);
+			return;
 		}
-		else{
-		Node n = first;
-		for(int i=0;i<index-1;i++)
-		{
-			n = n.next;
-		}
-		node.next = n.next;
-		n.next = node;
-		}
+
+		/* This new node is going to be the last node, so make next of it as null */
+
+		new_node.next = null;
+
+		/* Else traverse till the last node */
+		Node last = first;
+		while (last.next != null)
+			last = last.next;
+
+		/* Change the next of last node */
+		last.next = new_node;
 	}
 }

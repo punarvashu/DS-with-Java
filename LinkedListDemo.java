@@ -1,4 +1,3 @@
-package dsa.linkedlists;
 
 public class LinkedListDemo {
 
@@ -11,12 +10,19 @@ public class LinkedListDemo {
 		dll.addNode(40);
 		dll.addNode(50);
 		dll.display();
-		System.out.println("Size: " + dll.getSize());
-//		dll.remove(40);
+		System.out.println();
+//		System.out.println("Size: " + dll.getSize());
+//		dll.removeFirstNode();
+//		dll.removeLastNode();
 //		dll.removeAt(3);
+//		dll.remove(40);
 //		dll.display();
 //		dll.displayInReverse();
-//		dll.insertAt(3,70);
+//		dll.insertAtStart(25);
+		dll.insertAt(3,70);
+//		dll.insertAtEnd(60);
+//		dll.search(20);
+		dll.display();
 		
 	}
 
