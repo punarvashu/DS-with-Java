@@ -2,13 +2,11 @@ public class DoublyLinkedList {
 
 	private Node first;
 	private Node last;
-	private int numberOfNodes;
 
 	public DoublyLinkedList() {
 		super();
 		this.first = null;
 		this.last = null;
-		numberOfNodes = 0;
 	}
 
 	public Node getFirst() {
@@ -56,7 +54,6 @@ public class DoublyLinkedList {
 		} else {
 			Node currentNode = first;
 			while (currentNode != null) {
-				numberOfNodes += 1;
 				System.out.print(currentNode.data + " ");
 				currentNode = currentNode.next;
 			}
@@ -186,16 +183,14 @@ public class DoublyLinkedList {
 	}
 
 	public void insertAt(int index, int data) {
-		// first check if the linked-list is present or not.
-		// if present then follow next.
-		
-		// index >= 1 and 
-		// limit the upper index
-		
-		
-		/*index = 3;
-		data = 25;	*/	// 10 --> p20n --> 25 --> p30n --> 40 --> 50
-		
+		if (this.first == null) {
+			System.out.println("list is empty");
+			System.exit(1);
+		}
+			else if(index<1) {
+				System.out.println("illigal input");
+			}else {
+	
 		Node node = this._createNode(data);
 		Node current = first;
 	
@@ -239,5 +234,7 @@ public class DoublyLinkedList {
 
 		/* Change the next of last node */
 		last.next = new_node;
+		this.computeSize();
+		System.out.println("size of list is" + computeSize());
 	}
 }
