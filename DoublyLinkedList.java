@@ -238,3 +238,23 @@ public class DoublyLinkedList {
 		System.out.println("size of list is" + computeSize());
 	}
 }
+	public void reverseList() {
+		if (this.first==null) {
+			System.out.println("list is empty");
+			System.exit(1);
+		}else {
+			 Node temp = null; 
+		           Node current = first; 
+		    while (current != null) { 
+		            temp = current.prev; 
+		            current.prev = current.next; 
+		            current.next = temp; 
+		            current = current.prev; 
+		        } 
+		  
+		        if (temp != null) { 
+		            first = temp.prev; 
+		        } 
+		    } 
+	}
+}
