@@ -22,6 +22,7 @@ public class LinkedListDemo {
 		dll.insertAt(3,70);
 //		dll.insertAtEnd(60);
 //		dll.search(20);
+		dll.reverseList();
 		dll.display();
 		
 	}
