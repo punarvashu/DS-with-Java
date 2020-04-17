@@ -10,7 +10,7 @@ public class SinglyRunner {
 		dll.addNode(40);
 		dll.addNode(50);
 		dll.display();
-    	System.out.println();
+    	        System.out.println();
 //		dll.removeFirstNode();
 //		dll.removeLastNode();
 //		dll.removeAt(3);
