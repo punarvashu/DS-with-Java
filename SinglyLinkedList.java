@@ -125,4 +125,69 @@ public class SinglyLinkedList {
 
 	}
 
-}
+public void removeFirstNode() {
+		if (this.first == null) {
+			System.out.println("list is empty");
+			System.exit(1);
+		} else {
+			Node currentNode = first;
+			while (currentNode != null) {
+				if (currentNode == first) {
+					first = first.next;
+					System.out.println("removed first node");
+					break;
+				}
+			}
+		}
+	}
+
+	public void removeLastNode() {
+		if (this.first == null) {
+			System.out.println("list is empty");
+			System.exit(1);
+		} else {
+			Node node = first;
+			while (node.next.next != null)
+				node = node.next;
+			node.next = null;
+			System.out.println("last node is removed");
+
+		}
+	}
+
+	private int computeSize() {
+		int retval = 0;
+		Node current = first;
+		while (current != null) {
+			retval += 1;
+			current = current.next;
+		}
+		return retval;
+	}
+
+	public void insertAtEnd(int data) {
+		if (this.first == null) {
+			System.out.println("list is empty");
+			System.exit(1);
+		} else {
+			Node node = this._createNode(data);
+			if (first == null) {
+				first = new Node(data);
+				return;
+			}
+
+			node.next = null;
+
+			Node last = first;
+			while (last.next != null)
+				last = last.next;
+
+			last.next = node;
+			this.computeSize();
+			System.out.println("size of list is" + computeSize());
+		}
+	  }
+
+      }
+
+  }
