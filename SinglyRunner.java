@@ -2,26 +2,26 @@
 public class SinglyRunner {
 
 	public static void main(String[] args) {
-		SinglyLinkedList dll = new SinglyLinkedList();
+		SinglyLinkedList sll = new SinglyLinkedList();
 		
-		dll.addNode(10);
-		dll.addNode(20);
-		dll.addNode(30);
-		dll.addNode(40);
-		dll.addNode(50);
-		dll.display();
+		sll.addNode(10);
+		sll.addNode(20);
+		sll.addNode(30);
+		sll.addNode(40);
+		sll.addNode(50);
+		sll.display();
     	        System.out.println();
-//		dll.removeFirstNode();
-//		dll.removeLastNode();
-//		dll.removeAt(3);
-//		dll.remove(40);
-//		dll.display();
-//		dll.displayInReverse();
-		dll.insertAtStart(25);
-		dll.insertAt(3,70);
-//		dll.insertAtEnd(60);
-//		dll.search(20);
-		dll.display();
+//		sll.removeFirstNode();
+//		sll.removeLastNode();
+//		sll.removeAt(3);
+//		sll.remove(40);
+//		sll.display();
+//		sll.displayInReverse();
+		sll.insertAtStart(25);
+		sll.insertAt(3,70);
+//		sll.insertAtEnd(60);
+//		sll.search(20);
+		sll.display();
 		
 	}
 
