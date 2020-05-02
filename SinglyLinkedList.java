@@ -93,7 +93,7 @@ public class SinglyLinkedList {
 		} else {
 			Node n = first;
 			Node n1 = null;
-			for (int i = 0; i < index - 1; i++) {
+			for (int i = 1; i < index - 1; i++) {
 				n = n.next;
 			}
 			n1 = n.next;
@@ -125,7 +125,7 @@ public class SinglyLinkedList {
 
 	}
 
-public void removeFirstNode() {
+	public void removeFirstNode() {
 		if (this.first == null) {
 			System.out.println("list is empty");
 			System.exit(1);
@@ -186,8 +186,45 @@ public void removeFirstNode() {
 			this.computeSize();
 			System.out.println("size of list is" + computeSize());
 		}
-	  }
+	}
 
-      }
+	public void remove(int value) {
 
-  }
+		Node temp = first, prev = null;
+
+		if (temp != null && temp.data == value) {
+			first = temp.next;
+			return;
+		}
+
+		while (temp != null && temp.data != value) {
+			prev = temp;
+			temp = temp.next;
+		}
+
+		if (temp == null)
+			return;
+
+		prev.next = temp.next;
+	}
+
+	public void displayInReverse() {
+		Node n = first;
+		Node prev = null;
+		Node current = null;
+		if (this.first == null) {
+			System.out.println("list is empty");
+			System.exit(1);
+		} else {
+			while (n != null) {
+				current = n;
+				n = n.next;
+				first = current;
+				current.next = prev;
+				prev = current;
+				first = current;
+			}
+		}
+	}
+}
+
