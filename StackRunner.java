@@ -8,10 +8,11 @@ public class StackRunner {
 		nums.push(30);
 		nums.push(40);
 		nums.push(50);
-		nums.pop();
-		nums.peek();
-		nums.size();
-		System.out.println("Empty = " + nums.isEmpty());
+//		nums.pop();
+//		nums.peek();
+//		nums.size();
+//		System.out.println("Empty = " + nums.isEmpty());
+		System.out.println("Full = " + nums.isFull());
 		nums.show();
 	}
 
