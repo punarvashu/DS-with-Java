@@ -6,6 +6,8 @@ public class StackMain {
 		sull.push(18);
 		sull.push(45);
 		sull.push(10);
+		sull.pop();
+		sull.peek();
 		sull.display();
 	}
 }

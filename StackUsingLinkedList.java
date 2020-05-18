@@ -41,6 +41,27 @@ public class StackUsingLinkedList {
 		}
 	}
 
+	public boolean isEmpty() {
+		return top == null;
+	}
+	public void pop() {
+		if(top==null) {
+			System.out.println("stack underflow");
+			
+		}else {
+			top= top.next;
+		//	System.out.println("Element poped out is : "+ top);
+		}
+	}
+	public void peek() {
+		if (!isEmpty()) {
+			System.out.println("Element peeked out : "+ top.data);
+		}else {
+			System.out.println("Stack is empty");
+			System.exit(1);
+		}
+	}
+
 	public void display() {
 		if (top == null) {
 			System.out.println("Stack Underflow");
